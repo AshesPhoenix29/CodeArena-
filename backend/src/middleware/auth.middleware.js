@@ -2,6 +2,7 @@
 // CodeArena — JWT Auth Middleware
 
 import { supabaseAdmin, supabaseClient } from '../config/supabase.js';
+import { verifyToken } from '../services/auth.service.js';
 
 // ─────────────────────────────────────────────
 // requireAuth  — protects any route

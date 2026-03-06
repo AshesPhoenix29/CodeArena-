@@ -6,6 +6,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/auth.routes.js';
+import roomRoutes from './routes/room.routes.js';
 
 const app = express();
 
@@ -24,15 +25,15 @@ app.use('/api/auth/signup', rateLimit({ windowMs: 60 * 60 * 1000, max: 5,  messa
 app.use(express.json({ limit: '1mb' }));
 
 // ── Routes ────────────────────────────────────
-app.use('/api/auth', authRoutes);
+app.use('/api/auth',  authRoutes);
+app.use('/api/rooms', roomRoutes);
 
-// Phase 2+ routes registered here as we build:
-// app.use('/api/rooms',       roomRoutes);
+// Phase 3+ routes registered here as we build:
 // app.use('/api/questions',   questionRoutes);
 // app.use('/api/submissions', submissionRoutes);
 
 // ── Health check ──────────────────────────────
-app.get('/health', (_, res) => res.json({ status: 'ok', phase: 1 }));
+app.get('/health', (_, res) => res.json({ status: 'ok', phase: 2 }));
 
 // ── Global error handler ──────────────────────
 app.use((err, req, res, _next) => {

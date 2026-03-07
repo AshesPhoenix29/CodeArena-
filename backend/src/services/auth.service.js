@@ -23,7 +23,7 @@ export async function signUp({ email, password, username, displayName }) {
   const { data, error } = await supabaseAdmin.auth.admin.createUser({
     email,
     password,
-    email_confirm: false,          // sends confirmation email
+    email_confirm: true,          // sends confirmation email
     user_metadata: {
       full_name: displayName || username,
     },

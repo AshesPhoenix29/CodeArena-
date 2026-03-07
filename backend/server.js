@@ -8,5 +8,5 @@ const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`\n🏟  CodeArena backend running on port ${PORT}`);
-  console.log(`   Phase 1 — Supabase + Auth ✓\n`);
+ // console.log(`   Phase 1 — Supabase + Auth ✓\n`);
 });

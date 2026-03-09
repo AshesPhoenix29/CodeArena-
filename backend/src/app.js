@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import authRoutes from './routes/auth.routes.js';
 import roomRoutes from './routes/room.routes.js';
+import questionRoutes from './src/routes/questions.js';
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/api/auth',  authRoutes);
 app.use('/api/rooms', roomRoutes);
 
 // Phase 3+ routes registered here as we build:
+app.use('/api/questions', questionRoutes);
 // app.use('/api/questions',   questionRoutes);
 // app.use('/api/submissions', submissionRoutes);
 
